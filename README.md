@@ -9,8 +9,8 @@
 We have developed a program which displays information about the system, such as memory usage, cpu utilization, number of cores, and maximim frequency.
 
 The program accepts several command line arguments:
-```--memory```: to indicate that the memory usage should be generated
-```--cpu```: to indicate that the CPU usage should be generated
+- ```--memory```: to indicate that the memory usage should be generated
+- ```--cpu```: to indicate that the CPU usage should be generated
 ```--cores```: to indicate that the cores information should be generated
 ```--samples=N```: indicates how many times the statistics are going to be calculates and displayed. If no value is provided, default is 20 
 ```--tdelay=T```: indicates how frequently to sample in micro-seconds. If no value is provide, default is 500000 microseconds = 0.5 seconds
