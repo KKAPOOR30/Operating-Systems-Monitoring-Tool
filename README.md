@@ -11,9 +11,9 @@ We have developed a program which displays information about the system, such as
 The program accepts several command line arguments:
 - ```--memory```: to indicate that the memory usage should be generated
 - ```--cpu```: to indicate that the CPU usage should be generated
-```--cores```: to indicate that the cores information should be generated
-```--samples=N```: indicates how many times the statistics are going to be calculates and displayed. If no value is provided, default is 20 
-```--tdelay=T```: indicates how frequently to sample in micro-seconds. If no value is provide, default is 500000 microseconds = 0.5 seconds
+- ```--cores```: to indicate that the cores information should be generated
+- ```--samples=N```: indicates how many times the statistics are going to be calculates and displayed. If no value is provided, default is 20 
+- ```--tdelay=T```: indicates how frequently to sample in micro-seconds. If no value is provide, default is 500000 microseconds = 0.5 seconds
 
 ```--samples=N and --tdelay=N``` can be provided as positional arguments in the folowing order: samples tdelay
 In this case, these argument should be the first ones to be passed to the program.
