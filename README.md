@@ -87,14 +87,11 @@ A makefile is provided that should take care of all compilations.
 
 
 ### Expected Results
-The program will output the tables and data based on the input provided. The data will be printed to the terminal, and the corresponding files based on the inputs. The order of the tables will be as follows:
-- per-process
-- system-wide
-- vnodes
-- composite
-- summary
-- threshold
-
+The program will output the graphs and data based on the input provided. The data will be printed to the terminal. The order of the graphs will be as follows:
+- Memory Usage (Graph of the amount of memory being used (GB))
+- CPU Utilization (Graph of % of CPU being used)
+- Cores (Number of Cores and Max Frequency)
+  
 Based on what inputs are provided.
 
 
@@ -102,15 +99,14 @@ Based on what inputs are provided.
 - Inputting each of the recognized cmd prompts
 - Inputting invalid cmd prompts
 - Inputting cmd prompts out of position for the positional prompt
-- Inputting a PID that is not running
-- Inputting a PID that is running
-- Inputting no PID
+- Pressing ```Ctrl-C``` to see if user us asked for confirmation
+- Pressing ```Ctrl-Z``` to see if signal is ignored
+- Running the program with time to see if program runs within the allowed time
 - Valgrind testing the code to check for memory leaks
 
 Issues fixed from test cases:
 - Memory leaks fixed
-- PIDs with no permissions were also initially added to the list, which was then fixed
-- Table formatting was off and chaotic which was fixed
+- Extra time delays were removed to optimize speed
 
 
 ## Disclaimers
@@ -118,10 +114,7 @@ Issues fixed from test cases:
 
 
 ### References
-- https://www.man7.org/linux/man-pages/man2/stat.2.html
-- https://www.man7.org/linux/man-pages/man2/readlink.2.html
+- https://www.man7.org/linux/man-pages/man2/pipe.2.html
+- https://www.man7.org/linux/man-pages/man2/fork.2.html
 - https://www.man7.org/linux/man-pages/man5/proc.5.html
-- https://www.man7.org/linux/man-pages/man3/snprintf.3p.html
-- https://www.man7.org/linux/man-pages/man3/opendir.3.html
-- https://www.man7.org/linux/man-pages/man3/closedir.3.html
 
