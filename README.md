@@ -18,7 +18,7 @@ The program accepts several command-line arguments:
 ```--samples=N and --tdelay=N``` can be provided as positional arguments in the following order: samples, tdelay
 In this case, these arguments should be the first ones to be passed to the program.
 
-CLA Syntax: ```./myMonitoringTool  [samples tdelay] [--memory] [--cpu] [--cores] [--samples=N] [--tdelay=T]```
+CLA Syntax: ```./monitorTool  [samples tdelay] [--memory] [--cpu] [--cores] [--samples=N] [--tdelay=T]```
 
 Additional Changes:
 
@@ -39,19 +39,18 @@ Default Behavior: If no arguments are provided, the program will display memory 
 - Step 8: Testing, the code was run multiple times using many different types of inputs, and any bugs and issues found were fixed.
 
 ### Implementation
-- ``` read_fd_data(PIDData* pid) ``` Helper to read the FD data of the given pid
-- ``` get_all_data() ```: Gets the pid and fd data for all running processes that we have permission to.
-- ``` get_single_data(int pid) ```: Get the pid and fd data for the provided pid
-- ``` print_per(PIDData* head) ```: Prints the table containing PIDs and their open FDs
-- ``` print_system(PIDData* head) ```: Prints the table containing PIDs, FDs, filenames
-- ``` print_vnode(PIDData* head) ```: Prints the table containing FDs, and Inodes
-- ``` print_composite(PIDData* head, bool file) ```: Prints the table containing PIDs, FDs, filenames, and inodes, if file is true prints to the file otherwise to the terminal
-- ``` print_to_bin(PIDData* head) ``` Prinys the data in binary format to the binary file
-- ``` in_int(char* num) ```Return if the provided string is a non negative integer
-- ``` create_PID(PIDData* head, int pid)``` Creates a new PID node attaches it to the head of the existing linked list
-- ``` creat_FD(int fd, long inode, char* filename, FDData* head) ``` Creates a new FD node and attaches it to the start of the existing linked list and to its corresponding PID
+- ```double getTotalMem();```: Returns the total memory in the computer in GB
+- ```double readMemoryUsed(double total_mem);```: Returns the memory being used by the computer in GB at the moment it is called
+- ```void displayMemoryGraph(double maxGB, int samples, double data[]);```: Prints the memory usage graph
+- ```long* readCpuUtil();```: Returns a list of 2 longs, one representing the total CPU used, and the other representing the CPU not being used/idle
+- ```void displayCPUGraph(int samples, double* data);```: Prints the CPU Utilization graph
+- ```int readNumCores();```: Returns the total number of cores in the system
+- ```double readMaxFreq();```: Returns the maximum frequncy of the system
+- ```void displayCores(int cores, double freq);```: Displays all the core data
+- ```bool is_int(char* num);```: Returs true if the string is an integer
+- ```void sig_handler(int sig)```: Handles the ```Ctrl-C, Ctrl-Z``` signals.
 
-### Include a pseudo-code of your code
+### Pseudo-code
 ```
 def main(int argc, char**argv){
   initializing variables
@@ -82,9 +81,9 @@ def main(int argc, char**argv){
     
 ### Instructions on how to compile your code
 A makefile is provided that should take care of all compilations.
-- ``` make all ``` will compile the .c file and create/compile the showTables executable file
-- ``` make clean ``` can be used to delete all the object file and the executable file made by the ``` make all ``` command.
-- Once the executable is created it can be run by using the ``` ./showTables ``` command and any flags as stated above can be added after with spaces in between 
+- ``` make all ``` will compile all .c files and create/compile the monitorTool executable file
+- ``` make clean ``` can be used to delete all the object files and the executable file made by the ``` make all ``` command.
+- Once the executable is created, it can be run by using the ``` ./monitorTool  [samples tdelay] [--memory] [--cpu] [--cores] [--samples=N] [--tdelay=T] ``` command, and any of the flags stated can be added after, with spaces in between
 
 
 ### Expected Results
