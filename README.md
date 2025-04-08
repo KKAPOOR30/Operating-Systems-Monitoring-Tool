@@ -68,20 +68,47 @@ def main(int argc, char**argv){
     #For example, if --composite is a parameter, make the composite variable true so we later know, composite is to be displayed
   }
 
-  if (pid provided){
-    Get data for that pid using get_single_data(pid)
-  }  otherwise {
-    get all pid data using get_all_data()
+  if (cores){
+    create pipe and process to read number of cores
+    create pipe and process to read max frequency
   }
 
-  if (per-process is true) {
-    run print_per(head) function
-  } 
-  if (systemWide is true) {
-    run print_system(head) function
-  } ... Similarly do the same for the other input flags ...
+  create pipe and process to read the total memory
+  create pipe and process to read the initial CPU info
+  read from the total memory pipe, close the pipe and process
+  read from the initial CPU data pipe, close the pipe and process
 
-  free all the allocated memory
+  delay(tdelay)
+
+  for (number of samples){
+    if (memory){
+      create pipe and process to read memory data
+    }
+
+    if (cpu){
+      create pipe and process to read cpu data
+    }
+
+    if (memory){
+      read data from memory pipe, then close the pipe and process
+      store memory usage
+      display the memory data
+    }
+
+    if (cpu){
+      read data from cpu pipe, then close the pipe and process
+      calculate and store CPU Utilization
+      display the CPU data
+    }
+
+    delay(tdelay)
+  }
+
+  if (cores){
+    read number of cores from pipe, close the pipe and process
+    read max frequency from pipe, close the pipe and process
+    display the cores data
+  }
 }
 ```
     
