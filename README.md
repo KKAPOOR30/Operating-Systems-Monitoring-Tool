@@ -39,6 +39,12 @@ Default Behavior: If no arguments are provided, the program will display memory 
 - Step 8: Testing, the code was run multiple times using many different types of inputs, and any bugs and issues found were fixed.
 
 ### Implementation
+3 Modules were created for this software. Each Module was resposnible for a different section of the tool. The 3 modules were: 
+- ```cpuFunctions.h```: Contains all helper functions that deal with reading and writing data involving the CPU Utilization
+- ```coreFunctions.h```: Contains all helper functions that deal with reading and writing data involving the cores
+- ```memoryFunctions.h```: Constains all helper funtions that deal with reading and writing data involving the meory usage
+
+Functions implemented:
 - ```double getTotalMem();```: Returns the total memory in the computer in GB
 - ```double readMemoryUsed(double total_mem);```: Returns the memory being used by the computer in GB at the moment it is called
 - ```void displayMemoryGraph(double maxGB, int samples, double data[]);```: Prints the memory usage graph
